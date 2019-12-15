@@ -16,6 +16,9 @@ public class Candidate {
     private Date birthDate;
     @OneToMany(mappedBy = "candidate")
     private List<Vote> candidateVotes = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "idTeam")
+    private Team team;
 
     public int getIdCandidate() {
         return idCandidate;
@@ -49,13 +52,31 @@ public class Candidate {
         this.birthDate = birthDate;
     }
 
+    public List<Vote> getCandidateVotes() {
+        return candidateVotes;
+    }
+
+    public void setCandidateVotes(List<Vote> candidateVotes) {
+        this.candidateVotes = candidateVotes;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
     @Override
     public String toString() {
         return "Candidate{" +
-                "userCandidate=" + idCandidate +
+                "idCandidate=" + idCandidate +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", birthDate=" + birthDate +
+                ", candidateVotes=" + candidateVotes +
+                ", team=" + team.getName() +
                 '}';
     }
 }
