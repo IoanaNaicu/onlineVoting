@@ -13,11 +13,12 @@ public class UserDao {
     public List<User> getAllUsers(){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("from User");
-
         List<User> userList = query.list();
         session.close();
         return userList;
     }
+
+    //testing git
 
     public List<User> getUsersByUserType(String userType){
         Session session = HibernateUtil.getSessionFactory().openSession();
