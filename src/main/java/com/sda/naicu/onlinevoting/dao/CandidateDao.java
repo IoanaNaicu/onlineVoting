@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import java.awt.event.HierarchyBoundsAdapter;
 import java.util.List;
 
 public class CandidateDao {
@@ -19,6 +18,7 @@ public class CandidateDao {
         session.close();
         return candidate;
     }
+
 
     public List<Candidate> getAllCandidates(){
         Session session = HibernateUtil.getSessionFactory().openSession();

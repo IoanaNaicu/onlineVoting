@@ -1,6 +1,7 @@
 package com.sda.naicu.onlinevoting.util;
 
 import com.sda.naicu.onlinevoting.model.Candidate;
+import com.sda.naicu.onlinevoting.model.Team;
 import com.sda.naicu.onlinevoting.model.User;
 import com.sda.naicu.onlinevoting.model.Vote;
 import org.hibernate.SessionFactory;
@@ -31,6 +32,7 @@ public class HibernateUtil {
                 configuration.addAnnotatedClass(User.class);
                 configuration.addAnnotatedClass(Candidate.class);
                 configuration.addAnnotatedClass(Vote.class);
+                configuration.addAnnotatedClass(Team.class);
 
                 sessionFactory = configuration.buildSessionFactory();
             } catch (Exception e) {
