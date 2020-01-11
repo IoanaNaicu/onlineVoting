@@ -181,9 +181,12 @@ public class OnlineVotingMainView extends PrincipalView {
             boolean candidateAlreadyExist = false;
             //daca inserez un cnp  care exista crapa!!!! cu duplicate
 
-            if(!firstNameText.getText().isEmpty() || !lastNameText.getText().isEmpty() ||
-                !cnpText.getText().isEmpty() || datePicker.getValue() == null ||
-                    !candidateTeamComboBox.getSelectionModel().isEmpty() ) {
+            if (firstNameText.getText().isEmpty() || lastNameText.getText().isEmpty() ||
+                                         cnpText.getText().isEmpty() || datePicker.getValue() == null ||
+                                                    candidateTeamComboBox.getSelectionModel().isEmpty()) {
+                exeptionLabel.setText("Please complete all fields");
+                exeptionLabel.setTextFill(Color.web("#fc0505"));
+            } else {
                 for (String cnp : allCnps) {
                     if (cnpText.getText().equals(cnp)) {
                         candidateText.setText("Candidate already registred");
@@ -211,10 +214,8 @@ public class OnlineVotingMainView extends PrincipalView {
                     exeptionLabel.setText("Please complete all fields");
                     exeptionLabel.setTextFill(Color.web("#fc0505"));
                 }
-            } else {
-                exeptionLabel.setText("Please complete all fields");
-                exeptionLabel.setTextFill(Color.web("#fc0505"));
             }
+
         });
 
 
