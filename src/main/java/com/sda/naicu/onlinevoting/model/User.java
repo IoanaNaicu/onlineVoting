@@ -12,13 +12,26 @@ public class User {
     private String address;
     private String county;
     private String cnp;
-    private String userType;
-    @OneToOne
-    @JoinColumn(name = "idVote")
-    private Vote userVote;
+    @Enumerated(EnumType.STRING)
+    private UserType userType;
+//    @OneToOne
+//    @JoinColumn(name = "idVote")
+//    private Vote userVote;
 
     public int getIdUser() {
         return idUser;
+    }
+
+    public User() {
+    }
+
+    public User(String firstName, String lastName, String address, String county, String cnp, UserType userType) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.county = county;
+        this.cnp = cnp;
+        this.userType = userType;
     }
 
     public void setIdUser(int idUser) {
@@ -65,11 +78,11 @@ public class User {
         this.cnp = cnp;
     }
 
-    public String getUserType() {
+    public UserType getUserType() {
         return userType;
     }
 
-    public void setUserType(String userType) {
+    public void setUserType(UserType userType) {
         this.userType = userType;
     }
 

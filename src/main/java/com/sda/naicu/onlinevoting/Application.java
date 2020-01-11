@@ -4,10 +4,12 @@ import com.sda.naicu.onlinevoting.dao.CandidateDao;
 import com.sda.naicu.onlinevoting.model.Candidate;
 import com.sda.naicu.onlinevoting.service.CandidateDisplayService;
 import com.sda.naicu.onlinevoting.view.OnlineVotingMainView;
+import com.sda.naicu.onlinevoting.view.PrincipalView;
+import com.sda.naicu.onlinevoting.view.VotersView;
 
 import java.util.List;
 
-public class Application extends OnlineVotingMainView{
+public class Application extends PrincipalView {
 
     public static void main(String[] args) {
         System.out.println("Starting Application");
@@ -19,7 +21,10 @@ public class Application extends OnlineVotingMainView{
 
         //System.out.println(candidateDao.getCandidateById(1));
         //printList(candidateDao.getAllCandidates());
-        OnlineVotingMainView.launch();
+        //OnlineVotingMainView.launch();
+
+        PrincipalView.launch();
+
     }
 
     public static <T> void printList(List<T> list){

@@ -30,6 +30,16 @@ public class CandidateDao {
         return candidateList;
     }
 
+    public List<String> getAllCnps(){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        Query query = session.createQuery("select cnp from Candidate");
+        List<String> cnpList = query.list();
+
+        session.close();
+        return cnpList;
+    }
+
     public void saveCandidate(Candidate candidate){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();

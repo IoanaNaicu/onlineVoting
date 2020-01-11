@@ -13,6 +13,19 @@ public class Team {
     @OneToMany(mappedBy = "team")
     private List<Candidate> candidateList = new ArrayList<>();
 
+    public Team(String name) {
+
+        this.name = name;
+    }
+
+    public Team(int idTeam, String name) {
+        this.idTeam = idTeam;
+        this.name = name;
+    }
+
+    public Team() {
+    }
+
     public int getIdTeam() {
         return idTeam;
     }
